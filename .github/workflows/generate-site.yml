@@ -3,7 +3,7 @@ on:
     types: [opened, edited, closed]
 
 jobs:
-  Generate Site:
+  GenerateSite:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-ruby@v1
