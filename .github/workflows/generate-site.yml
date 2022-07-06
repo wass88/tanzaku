@@ -9,7 +9,7 @@ jobs:
     - uses: actions/setup-ruby@v1
     - uses: actions/checkout@v2
     - name: Generate Site
-      run: site/generate_site.rb
+      run: ruby site/generate_site.rb
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
