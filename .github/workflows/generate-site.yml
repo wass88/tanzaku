@@ -7,7 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/setup-ruby@v1
-    - run: site/generate_site.rb
+    - uses: actions/checkout@v2
+    - name: Generate Site
+      run: site/generate_site.rb
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ github.repository }}
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site/dist
