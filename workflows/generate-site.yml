@@ -1,0 +1,13 @@
+on:
+  issues:
+    types: [opened, edited, closed]
+
+jobs:
+  fetchIssues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            console.log(github.issues.list({filter: "is:issue is:open"}))
